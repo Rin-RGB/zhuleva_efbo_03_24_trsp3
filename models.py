@@ -8,3 +8,7 @@ class User(UserBase):
 
 class UserInDB(UserBase):
     hashed_password: str
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
