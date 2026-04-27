@@ -1,8 +1,10 @@
 from pydantic import BaseModel
+from typing import List
 
 class UserBase(BaseModel):
     username: str
-
+class UserRole(UserBase):
+    roles: List[str]
 class User(UserBase):
     password: str
 
