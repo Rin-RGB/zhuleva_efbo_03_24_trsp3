@@ -4,3 +4,4 @@ __pycache__/
 .env
 .idea/
 database.sqlite
+todos.db

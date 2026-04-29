@@ -1,6 +1,48 @@
 # Контрольная работа №3
 Выполнила Жулева Дарья, ЭФБО-03-24
 
+## Инструкция по запуску
+1. Клонировать репозиторий: `git clone https://github.com/Rin-RGB/zhuleva_efbo_03_24_trsp3.git`
+
+2. Создать и активировать виртуальное окружение:
+
+### Windows
+python -m venv venv  
+venv\Scripts\activate
+
+### Mac/Linux
+python3 -m venv venv  
+source venv/bin/activate
+
+
+3. Установить зависимости  
+pip install -r requirements.txt  
+
+4. Запуск  
+
+### Задание 6.1  
+uvicorn 6-1:app --reload --port 8001  
+
+### Задание 6.2  
+uvicorn 6-2:app --reload --port 8002  
+
+### Задание 6.3  
+uvicorn 6-3:app --reload --port 8003  
+
+### Задание 6.4  
+uvicorn 6-4:app --reload --port 8004  
+
+### Задание 6.5  
+uvicorn 6-5:app --reload --port 8005  
+
+### Задание 7.1  
+uvicorn 7-1:app --reload --port 8006
+
+### Задание 8.1  
+uvicorn 8-1:app --reload --port 8007  
+
+### Задание 8.2  
+uvicorn 8-2:app --reload --port 8008  
 
 # Тестирование
 Тестирование 6.1
@@ -133,4 +175,44 @@ ___
   "id": 1,
   "username": "alice"
 }```
+---
+Тестирование 8.2
 
+При выполнении post: ```{
+  "id": 1,
+  "title": "todo",
+  "description": "need to do",
+  "completed": false,
+  "created_at": "2026-04-29 12:22:04"
+}```
+
+При выполнении put: ```{
+  "id": 1,
+  "title": "new",
+  "description": "new_description",
+  "completed": true,
+  "created_at": "2026-04-29 12:22:04"
+}```
+
+При выполнении get всех задач: ```[
+  {
+    "id": 2,
+    "title": "todo2",
+    "description": "need to do too",
+    "completed": false,
+    "created_at": "2026-04-29 12:30:39"
+  },
+  {
+    "id": 1,
+    "title": "new",
+    "description": "new_description",
+    "completed": true,
+    "created_at": "2026-04-29 12:22:04"
+  }
+]```
+
+При выполнении любого запроса с несуществующим id: ```{
+  "detail": "Todo not found"
+}```
+
+При удалении todo возвращает статус 204 без тела.
